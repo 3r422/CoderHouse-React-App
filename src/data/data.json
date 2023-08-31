@@ -1,0 +1,56 @@
+[
+    {
+        "name" : "picasso",
+        "avatar":"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1638&q=80",
+        "stock": 2,
+        "category": "TShirt",
+        "id": "1",
+        "price": 100
+
+    },
+    {
+        "name" : "yamaha",
+        "avatar":"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1638&q=80",
+        "stock": 2,
+        "category": "TShirt",
+        "id": "2",
+        "price": 500
+        
+       },
+       {
+        "name" : "sony",
+        "avatar":"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1638&q=80",
+        "stock": 2,
+        "category": "digitalart",
+        "id": "3",
+        "price": 500
+        
+       },
+       {
+        "name" : "casio",
+        "avatar":"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1638&q=80",
+        "stock": 2,
+        "category": "printart",
+        "id": "4",
+        "price": 500
+        
+       },
+       {
+        "name" : "godard",
+        "avatar":"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1638&q=80",
+        "stock": 2,
+        "category": "printart",
+        "id": "5",
+        "price": 500
+        
+       },
+       {
+        "name" : "coca",
+        "avatar":"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1638&q=80",
+        "stock": 2,
+        "category": "printart",
+        "id": "6",
+        "price": 500
+        
+       }
+]

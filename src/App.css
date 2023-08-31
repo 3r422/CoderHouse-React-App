@@ -6,3 +6,8 @@ span {
   padding: 0.5em;
  
 }
+
+.itemCount span {
+  color: black;
+  padding: 1em;
+}
