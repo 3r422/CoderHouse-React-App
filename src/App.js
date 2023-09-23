@@ -8,8 +8,6 @@ import { CartProvider } from './context/CartContext';
 import Carrito from './components/Carrito';
 import Checkout from './components/Checkout';
 
-
-
 function App() {
   return (
     < CartProvider>

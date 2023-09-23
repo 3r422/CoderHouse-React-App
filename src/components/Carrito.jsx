@@ -24,25 +24,25 @@ const Carrito = () => {
             {
                 carrito.map((prd) => (
                     <div className='map-productos' key={prd.id}>
-                        <img className='img-producto' src={prd.imagen} alt={prd.alt} />
-                        <div className='dupla-prd'>
+                        <img  src={prd.imagen} alt={prd.alt} />
+                        <div >
                             <small>Producto: </small>
                             <p className='prd-nombre'>{prd.nombre}</p>
                         </div>
-                        <div className='dupla'>
+                        <div >
                             <small>Cantidad: </small>
-                            <p className='prd-cantidad'>{prd.count}</p>
+                            <p >{prd.count}</p>
                         </div>
-                        <div className='dupla'>
+                        <div >
                             <small>Precio: </small>
-                            <p className='prd-precio'>{prd.precio}</p>
+                            <p >{prd.precio}</p>
                         </div>
-                        <div className='dupla'>
+                        <div >
                             <small>Total: </small>
-                            <p className='prd-total'>{prd.count * prd.precio}</p>
+                            <p>{prd.count * prd.precio}</p>
                         </div>
-                        <div className='eliminar-prd-div'>
-                            <Button className='eliminar-prd' onClick={() => handleEliminar(prd.id)}>Eliminar</Button>
+                        <div >
+                            <Button  onClick={() => handleEliminar(prd.id)}>Eliminar</Button>
                         </div>
                     </div>
                 ))

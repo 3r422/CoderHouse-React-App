@@ -35,7 +35,7 @@ const ItemDetail = ({ item }) => {
           {item.descripcion}
         </Card.Text>
         <Card.Text >
-          Categoría: {item.categoria}
+          Categoría: {item.category}
         </Card.Text>
         <Card.Text>
           Stock: {item.stock}

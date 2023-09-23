@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config';
 
-const categoriasRef = collection(db, "categorias");
+const categoriasRef = collection(db, "items1");
 export const NavBar = () => {
   const [uniqueCategories, setUniqueCategories] = useState([]);
 
@@ -27,9 +27,9 @@ export const NavBar = () => {
        
         <Nav className="me-auto">
           <Link className='nav-link' to="/">ERART</Link>
-          <NavDropdown title="Categorias">
+          <NavDropdown title="Productos">
             {[...uniqueCategories].map(category => (
-              <NavDropdown.Item key={category} as='span'>
+              <NavDropdown.Item key={category} as={Link}>
                 <Link className='nav-link' to={`/category/${category}`} >{category}</Link>
               </NavDropdown.Item>
             ))}
