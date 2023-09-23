@@ -1,21 +1,44 @@
+import  { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { CartWidget } from './CartWidget';
+import { Link } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
-import { CartWidget } from "./CartWidget";
+const categoriasRef = collection(db, "categorias");
+export const NavBar = () => {
+  const [uniqueCategories, setUniqueCategories] = useState([]);
 
-export const NavBar = () => (
+  useEffect(() => {
+    const fetchData = async () => {
+      const categoriasSnapshot = await getDocs(categoriasRef);
+      const categories = categoriasSnapshot.docs.map(doc => doc.data().key);
+      setUniqueCategories(categories);
+    };
+    fetchData();
+  }, []);
+
+  return (
     <Navbar bg="primary" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand href="#home">Eraart</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/category/printart">Print Art</Nav.Link>
-            <Nav.Link href="/category/digitalart">Digital Art</Nav.Link>
-            <Nav.Link href="/category/TShirt">T-Shirts Collections</Nav.Link>
-          </Nav>
-            <CartWidget/> 
-        </Container>
-      </Navbar>
-   
-);
+      <Container>
+       
+        <Nav className="me-auto">
+          <Link className='nav-link' to="/">ERART</Link>
+          <NavDropdown title="Categorias">
+            {[...uniqueCategories].map(category => (
+              <NavDropdown.Item key={category} as='span'>
+                <Link className='nav-link' to={`/category/${category}`} >{category}</Link>
+              </NavDropdown.Item>
+            ))}
+          </NavDropdown>
+         
+        </Nav>
+     
+        <CartWidget />
+      </Container>
+    </Navbar>
+  )
+};

@@ -1,13 +1,79 @@
-img {
-    height: 2.5em;
+.carrito {
+  mix-blend-mode: multiply;
+  height: 3rem;
 }
 
-span {
-  padding: 0.5em;
- 
+.cantPRD {
+  font-size: 1rem;
+  padding-left: 1rem;
+  font-weight: bold;
+  background-color: white;
+  margin: auto;
+  border-radius: 0.4rem;
+  padding-right: 0.9rem;
 }
 
-.itemCount span {
-  color: black;
-  padding: 1em;
+
+
+.ItemListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ItemListTitle {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.ItemContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.item-count {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 0.5rem;
+  width: 18rem;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+}
+
+.botones-total{
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 2 rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  
+}
+
+.map-productos {
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+  border-radius: 1rem;
+  padding: 0.5 rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+  
 }

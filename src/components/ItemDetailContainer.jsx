@@ -1,34 +1,31 @@
+import  { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import ItemDetail from './ItemDetail';
 import Container from 'react-bootstrap/Container';
-import data from '../data/data.json';
-import { useState, useEffect } from "react";
-import { ItemDetail } from './ItemDetail';
-import { useParams } from "react-router-dom";
+import { doc , getDoc } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
+const ItemDetailContainer = () => {
+    const [item, setItem] = useState(null);
+    const id = useParams().id;
 
-
-export const ItemDetailContainer = (props) => {
-    const [product, setProduct] = useState(null);
-
- const { id } = useParams();
-    
     useEffect(() => {
-        const promise = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                const productById = data.find((product) => product.id === id);
-                resolve(productById);
-            }, 2000);
-
-        });
-        promise.then((data) => setProduct(data))
-    }, [])
-
-    if (!product) return <div>Loading...</div>
-
+       const docRef = doc(db, "items1", id);
+       getDoc(docRef)
+        .then((resp) => {
+            setItem(
+                {...resp.data(), id: resp.id}
+            )
+        })
+    }, [id])
+    
+   
     return (
-        <Container className='mt-4'>
-            <h1>DETALLE</h1>
-            <ItemDetail product={product} />
+        <Container>
+            <h1>Detalle</h1>
+            {item && <ItemDetail item={item} />}
         </Container>
-    );
-
+    )
 }
+
+export default ItemDetailContainer

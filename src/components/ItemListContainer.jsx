@@ -1,39 +1,42 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
-import data from '../data/data.json';
-import { ItemList } from "./ItemList";
+export function ItemListContainer() {
 
+    const [productos, setProductos] = useState([]);
+    const [titulo, setTitulo] = useState("Loading...");
+    const categoria = useParams().id;
 
-export const ItemListContainer = (props) => {
-    const [products, setProducts] = useState([]);
-
-    const { id } = useParams();
 
     useEffect(() => {
-        const promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve(data), 2000)
-        });
-        promise.then((data) => {
-            if (!id) {
-                setProducts(data);
-            } else {
-                const productsFiltered = data.filter(
-                    (product) => product.category === id);
-                setProducts(productsFiltered);
-            }
-        });
-    }, []);
+        const productosRef = collection(db, "items1");
+        const q = categoria ? query(productosRef, where("categoria", "==", categoria)) : productosRef;
+        getDocs(q)
+            .then((resp) => {
+                setProductos(
+                    resp.docs.map((doc) => {
+                        return { ...doc.data(), id: doc.id }
+                    })
+                )
+            })
+
+        if (categoria) {
+            setTitulo(categoria);
+        } else {
+            setTitulo("Productos");
+        }
+
+    }, [categoria])
+
 
 
     return (
-        <Container className='mt-4'>
-            <h1>{props.greeting}</h1>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                <ItemList products={products} />
-            </div>
-
+        <Container>
+            <ItemList productos={productos} titulo={titulo} />
         </Container>
-    )
+    );
 }
